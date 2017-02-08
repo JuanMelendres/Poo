@@ -1,0 +1,13 @@
+import javax.swing.JOptionPane;
+
+public class Tablero {
+	private Casilla[][][] casilla = new Casilla[3][3][3];
+	private boolean turno;
+	public Tablero(){
+		this.turno = true;
+	}
+	public boolean pedirCoordenada(){
+		JOptionPane.showInputDialog(null, "Ingresa la corrdenada donde quiers tirar (X Y Z)");
+		return turno;
+	}
+}

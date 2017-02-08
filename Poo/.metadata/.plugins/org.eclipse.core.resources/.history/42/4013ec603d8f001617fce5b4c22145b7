@@ -1,0 +1,8 @@
+
+public class Tablero {
+	private boolean turno;
+	public Tablero(){
+		
+	}
+	
+}

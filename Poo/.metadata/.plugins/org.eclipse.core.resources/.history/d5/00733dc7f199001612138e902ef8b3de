@@ -1,0 +1,27 @@
+
+public class Casilla {
+	private boolean disponible,
+					valor;
+	public static final boolean X = true;
+	public static final boolean O = false;
+	
+	public Casilla(){
+		this.valor = true;
+		this.disponible = true;
+	}
+	public boolean getValor(){
+		return this.valor;
+	}
+	public void setValor(boolean signo){
+		this.valor=signo;
+	}
+	public void setDisponible(boolean disponible){
+		this.disponible = disponible;
+	}
+	public boolean getDisponible(){
+		return this.disponible;
+	}
+//	public String toString(){
+//		return;
+//	}
+}

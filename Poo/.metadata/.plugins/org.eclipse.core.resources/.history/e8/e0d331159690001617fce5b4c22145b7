@@ -1,0 +1,20 @@
+import javax.swing.JOptionPane;
+
+public class Tablero {
+	private Casilla[][][] casilla = new Casilla[3][3][3];
+	private boolean turno;
+	public Tablero(){
+		this.turno = true;
+	}
+	public boolean pedirCoordenada(){
+		int c1 = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingresa la coordenada donde quiers tirar en X"));
+		int c2 = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingresa la coordenada donde quiers tirar en Y"));
+		int c3 = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingresa el tablero"));
+		return turno;
+		
+	}
+	public static void main(String[] args) {
+		Tablero obj = new Tablero();
+		obj.pedirCoordenada();
+	}
+}

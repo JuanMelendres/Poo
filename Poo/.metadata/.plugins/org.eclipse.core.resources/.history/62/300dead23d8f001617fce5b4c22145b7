@@ -1,0 +1,9 @@
+
+public class Tablero {
+	Casilla[][][] casilla = new Casilla[3][3][3];
+	private boolean turno;
+	public Tablero(){
+		
+	}
+	
+}

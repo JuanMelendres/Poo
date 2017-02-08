@@ -1,0 +1,42 @@
+import java.util.NoSuchElementException;
+import java.util.StringTokenizer;
+
+import javax.swing.JOptionPane;
+
+public class Tablero {
+	private Casilla[][][] casilla = new Casilla[3][3][3];
+	private boolean turno;
+	public Tablero(){
+		this.turno = true;
+	}
+	public boolean pedirCoordenada(){
+		try{
+			int[] arregloC = new int[3]; 
+			String coordenada = JOptionPane.showInputDialog(null, "Ingresa la coordenada: ");
+			StringTokenizer st  = new StringTokenizer(coordenada);
+			while(st.hasMoreTokens()){
+				//			System.out.println(st.nextToken());
+				for(int i = 0; i<arregloC.length;i++){
+					arregloC[i] = Integer.parseInt(st.nextToken());
+//					System.out.println(arregloC[i]);
+				}
+
+			}
+		}
+		catch(NumberFormatException e){
+			pedirCoordenada();
+			System.out.println("Error!!" + e);
+		}
+		catch(NoSuchElementException e){
+			pedirCoordenada();
+			System.out.println("Error!!" + e);
+		}
+		return turno;
+
+	}
+	//	public boolenagano
+	public static void main(String[] args) {
+		Tablero obj = new Tablero();
+		obj.pedirCoordenada();
+	}
+}

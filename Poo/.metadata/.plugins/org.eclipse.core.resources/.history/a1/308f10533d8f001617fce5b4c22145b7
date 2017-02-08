@@ -1,0 +1,19 @@
+
+public class Casillas {
+	private boolean disponible,
+					valor;
+	public static final boolean x = true;
+	public static final boolean y = false;
+	public Casillas(){
+		this.valor = true;
+	}
+	public boolean getValor(){
+		return this.valor;
+	}
+	public void setValor(boolean signo){
+		this.valor=signo;
+	}
+//	public String toString(){
+//		return;
+//	}
+}

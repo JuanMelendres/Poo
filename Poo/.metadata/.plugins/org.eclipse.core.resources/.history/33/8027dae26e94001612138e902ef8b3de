@@ -1,0 +1,52 @@
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
+
+public class PanelDibujo extends JPanel implements Runnable{
+	private int x,
+				y;
+	private Image fondo;
+	private String texto;
+	public PanelDibujo(){
+		super();
+		this.setPreferredSize(new Dimension(800,600));
+		this.x=0;
+		this.y=50;
+		Thread hilo = new Thread(this);
+		hilo.start();
+		this.fondo = new ImageIcon("pocoyo.jpg").getImage();
+		this.texto="Pocoyo";
+	}
+	public void paintComponent(Graphics g){
+			super.paintComponent(g);
+			g.drawImage(this.fondo, 100, 100,this);
+			g.setColor(Color.ORANGE);
+			g.fillOval(100+this.x, 500-this.y, 200, 100);
+			g.setColor(Color.CYAN);
+			g.fillArc(100+this.x, 500-this.y, 200, 100, 0, 100);
+			g.setColor(Color.BLACK);
+			g.drawLine(150+this.x, 506-this.y, 150+this.x, 400-this.y);
+			g.drawString("Vamos" +this,texto+ "!!", 150+this.x, 550-this.y);
+			g.setColor(Color.RED);
+			g.fillOval(100+this.x, 300-this.y, 100, 100);
+			g.setColor(Color.BLUE);
+			g.fillRect(0, 550, 800, 50);
+	}
+	@Override
+	public void run() {
+		while(this.x < 500){
+			try{
+				this.x+=2;
+				this.y++;
+				this.repaint();
+				Thread.sleep(20);
+			}
+			catch(InterruptedException e){
+				System.out.println(e);
+			}
+		}
+	}
+}

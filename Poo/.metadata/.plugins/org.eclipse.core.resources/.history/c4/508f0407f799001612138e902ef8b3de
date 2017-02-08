@@ -1,0 +1,76 @@
+import java.io.IOException;
+import java.util.NoSuchElementException;
+import java.util.StringTokenizer;
+import javax.swing.JOptionPane;
+
+public class Tablero {
+	
+	private Casilla[][][] casilla;
+	
+	private boolean turno; //true = X false = O
+	
+	public String[] coordenadasT = new String[15];
+	
+	public static final boolean X = true;
+	public static final boolean O = false;
+	
+	public Tablero(){
+		this.casilla = new Casilla[3][3][3];
+		this.turno = X;
+		for(int i = 0; i < casilla.length; i++){
+			for(int j = 0; j < casilla.length; j++){
+				for(int k = 0; k < casilla.length; k++){
+					casilla[i][j][k] = new Casilla();
+				}
+			}
+		}
+	}
+	public boolean pedirCoordenada(){
+		try{
+			//int[] arregloC = new int[3];
+			int i, j, k:
+			String coordenada = JOptionPane.showInputDialog(null, "Ingresa la coordenada (X Y Z): ");
+			StringTokenizer st  = new StringTokenizer(coordenada);
+			while(st.hasMoreTokens()){
+				//			System.out.println(st.nextToken());
+				int i = Integer.parseInt(st.nextToken());
+				int j = Integer.parseInt(st.nextToken());
+				int k = Integer.parseInt(st.nextToken());
+				System.out.println(i+" "+j+" "+k);
+//				for(int i = 0; i<arregloC.length;i++){
+//					arregloC[i] = Integer.parseInt(st.nextToken());
+//					System.out.println(arregloC[i]);
+//					if(arregloC[i] < 1 || arregloC[i] > 3 ){
+//						IOException e = new IOException();
+//						throw e;
+//					}
+//
+//				}
+
+			}
+		}
+		catch(NumberFormatException e){
+			//		System.out.println("Error!!" + e);
+			pedirCoordenada();
+		}
+		catch(NoSuchElementException e){
+			//		System.out.println("Error!!" + e);
+			pedirCoordenada();
+		}
+		catch(NullPointerException e){
+			//		System.out.println("Error!!" + e);
+		}
+//		catch(IOException e){
+//			pedirCoordenada();
+//			//		System.out.println("Error!!" + e);
+//		}
+		return this.turno;
+
+	}
+//	public boolenagano
+public static void main(String[] args) {
+	Tablero obj = new Tablero();
+	obj.pedirCoordenada();
+//	System.out.println("X|X| \n" + "------ \n" + "O|O|O\n" + "------ \n" + "X| | \n");
+}
+}

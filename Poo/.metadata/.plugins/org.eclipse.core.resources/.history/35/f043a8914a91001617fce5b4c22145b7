@@ -1,0 +1,13 @@
+import java.awt.Dimension;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class PanelControles extends JPanel{
+	private JTextField tfNombre;
+	private JButton bAceptar; 
+	public PanelControles(){
+		super();
+		this.setPreferredSize(new Dimension(200,600));
+	}
+}

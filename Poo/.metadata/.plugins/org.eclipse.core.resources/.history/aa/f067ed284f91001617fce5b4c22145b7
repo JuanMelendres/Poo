@@ -1,0 +1,36 @@
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+
+public class PanelControles extends JPanel implements ActionListener{
+	private JTextField tfNombre;
+	private JButton bAceptar; 
+	private JRadioButton rbAzul,
+						rbRojo,
+						rbVerde;
+	
+	public PanelControles(){
+		super();
+		this.setPreferredSize(new Dimension(200,600));
+		this.tfNombre = new JTextField(10);
+		this.bAceptar = new JButton("Aceptar");
+		this.rbAzul = new JRadioButton("Azul");
+		this.rbRojo = new JRadioButton("Rojo");
+		this.rbVerde = new JRadioButton("Verde");
+		this.add(this.tfNombre);
+		this.add(this.bAceptar);
+		this.add(this.rbAzul);
+		this.add(this.rbRojo);
+		this.add(this.rbVerde);
+		this.bAceptar.addActionListener(this);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+			System.out.println("Hola");
+	}
+}

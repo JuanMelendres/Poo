@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename field &apos;altura&apos; in &apos;Rectangulo&apos; to &apos;ancho&apos;&#x0A;- Original project: &apos;Poo&apos;&#x0A;- Original element: &apos;Rectangulo.altura&apos;&#x0A;- Renamed element: &apos;Rectangulo.ancho&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" delegate="false" deprecate="false" description="Rename field &apos;altura&apos;" flags="589830" getter="false" id="org.eclipse.jdt.ui.rename.field" input="/src&lt;{Rectangulo.java[Rectangulo^altura" name="ancho" references="true" setter="false" stamp="1473690816209" textual="false" version="1.0"/>
+</session>

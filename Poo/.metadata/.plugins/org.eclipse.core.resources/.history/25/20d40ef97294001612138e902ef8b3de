@@ -1,0 +1,98 @@
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
+import javax.swing.SingleSelectionModel;
+
+public class PanelDibujo extends JPanel implements Runnable, MouseListener,MouseMotionListener{
+	private int x,
+				y;
+	private Image fondo;
+	private String texto;
+	private boolean mover;
+	private int xRect = 50, 
+				yRect = 100;
+	public PanelDibujo(){
+		super();
+		this.setPreferredSize(new Dimension(800,600));
+		this.x=0;
+		this.y=50;
+		this.mover=false;
+		Thread hilo = new Thread(this);
+		hilo.start();
+		this.fondo = new ImageIcon("pocoyo.jpg").getImage();
+		this.texto="Pocoyo";
+		this.addMouseListener(this);
+		this.addMouseMotionListener(this);
+	}
+	public void paintComponent(Graphics g){
+		super.paintComponent(g);
+		g.drawImage(this.fondo, 100, 100, this.getWidth(), this.getHeight(), this);
+		g.setColor(Color.ORANGE);
+		g.fillOval(100+this.x, 500-this.y, 200, 100);
+		g.setColor(Color.CYAN);
+		g.fillArc(100+this.x, 500-this.y, 200, 100, 0, 100);
+		g.setColor(Color.BLACK);
+		g.drawLine(150+this.x, 506-this.y, 150+this.x, 400-this.y);
+		g.drawString("Vamos" + this.texto + "!!", 150+this.x, 550-this.y);
+		g.setColor(Color.RED);
+		g.fillOval(100+this.x, 300-this.y, 100, 100);
+		g.setColor(Color.BLUE);
+		g.fillRect(0, 550, 800, 50);
+		g.setColor(Color.GREEN);
+		g.fillRect(this.xRect, this.yRect, 300, 70);
+	}
+	public void setTexto(String texto){
+		this.texto=texto;
+		this.repaint();
+	}
+	@Override
+	public void run() {
+		while(this.x < 500){
+			try{
+				if(this.mover){
+					this.x+=2;
+					this.y++;
+					this.repaint();
+				}
+				Thread.sleep(20);
+			}
+			catch(InterruptedException e){
+				System.out.println(e);
+			}
+		}
+	}
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		System.out.println("Click");
+		this.mover=true;
+	}
+	@Override
+	public void mousePressed(MouseEvent e) {
+	}
+	@Override
+	public void mouseReleased(MouseEvent e) {
+	}
+	@Override
+	public void mouseEntered(MouseEvent e) {
+	}
+	@Override
+	public void mouseExited(MouseEvent e) {
+	}
+	@Override
+	public void mouseDragged(MouseEvent e) {
+		this.xRect=e.getX();
+		this.yRect=e.getY();
+		this.repaint();
+	}
+	@Override
+	public void mouseMoved(MouseEvent e) {
+
+	}
+}

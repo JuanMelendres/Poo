@@ -1,0 +1,28 @@
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class PanelControles extends JPanel implements ActionListener{
+	private JTextField tfNombre;
+	private JButton bAceptar; 
+	
+	public PanelControles(){
+		super();
+		this.setPreferredSize(new Dimension(200,600));
+		this.tfNombre = new JTextField(10);
+		this.bAceptar = new JButton("Aceptar");
+		this.add(this.tfNombre);
+		this.add(this.bAceptar);
+		bAceptar.addActionListener(this);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e != null){
+			System.out.println("Hola");
+		}
+	}
+}

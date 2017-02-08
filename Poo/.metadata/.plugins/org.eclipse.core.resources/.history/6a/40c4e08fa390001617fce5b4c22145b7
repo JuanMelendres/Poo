@@ -1,0 +1,63 @@
+import java.io.IOException;
+import java.util.NoSuchElementException;
+import java.util.StringTokenizer;
+import javax.swing.JOptionPane;
+
+public class Tablero {
+	private Casilla[][][] casilla = new Casilla[3][3][3];
+	private boolean turno;
+	public String[] coordenadasT = new String[15];
+	public Tablero(){
+		this.turno = true;
+	}
+	public boolean pedirCoordenada(){
+		String tempCoordenada;
+		try{
+			int[] arregloC = new int[3];
+			String coordenada = JOptionPane.showInputDialog(null, "Ingresa la coordenada (X Y Z): ");
+			tempCoordenada = coordenada;
+			for(int i = 1; i < coordenadasT.length; i++){
+				coordenadasT[i] = tempCoordenada;
+				if(coordenadasT[i] == coordenada){
+					System.out.println("Repite la coordenada");
+				}
+			}
+			StringTokenizer st  = new StringTokenizer(coordenada);
+			while(st.hasMoreTokens()){
+				//			System.out.println(st.nextToken());
+				for(int i = 0; i<arregloC.length;i++){
+					arregloC[i] = Integer.parseInt(st.nextToken());
+					if(arregloC[i] < 1 || arregloC[i] > 3 ){
+						IOException e = new IOException();
+						throw e;
+					}
+//					System.out.println(arregloC[i]);
+				}
+
+			}
+		}
+		catch(NumberFormatException e){
+//			System.out.println("Error!!" + e);
+			pedirCoordenada();
+		}
+		catch(NoSuchElementException e){
+//			System.out.println("Error!!" + e);
+			pedirCoordenada();
+		}
+		catch(NullPointerException e){
+//			System.out.println("Error!!" + e);
+		}
+		catch(IOException e){
+			pedirCoordenada();
+//			System.out.println("Error!!" + e);
+		}
+		return turno;
+
+	}
+	//	public boolenagano
+	public static void main(String[] args) {
+		Tablero obj = new Tablero();
+		obj.pedirCoordenada();
+		System.out.println("X|X| \n" + "------ \n" + "O|O|O\n" + "------ \n" + "X| | \n");
+	}
+}

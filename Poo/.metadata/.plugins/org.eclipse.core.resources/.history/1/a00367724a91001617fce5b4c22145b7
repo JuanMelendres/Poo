@@ -1,0 +1,12 @@
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class PanelControles extends JPanel{
+	private JTextField nombre;
+	private JButton boton; 
+	public PanelControles(){
+		super();
+		this.setPreferredSize(new Dimension(200,600));
+	}
+}
